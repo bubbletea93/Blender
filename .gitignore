@@ -1,0 +1,28 @@
+# Blender backup and recovery files
+*.blend[0-9]
+*.blend[0-9][0-9]
+quit.blend
+quit.blend[0-9]
+
+# Blender caches and generated data
+blendcache_*/
+cache/
+renders/
+
+# General temporary files
+*.tmp
+*.temp
+*.bak
+*.log
+
+# Python caches for project scripts
+__pycache__/
+*.py[cod]
+
+# Editor and OS files
+.vscode/
+.idea/
+.vs/
+.DS_Store
+Thumbs.db
+Desktop.ini
