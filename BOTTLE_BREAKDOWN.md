@@ -1,7 +1,7 @@
 # Nail Polish Bottle — Fundamental Parts Breakdown & Modeling Approach
 
 ## Context
-The user has a real-world gel nail polish bottle (HANC PURE "Starry Cat Eye", 18ml) and wants to model it in Blender. The goal is a clean, modular breakdown so each part can be independently modified. The scene already has several objects started (GoldHousing, RedCore, BackLens, NeckCollar, FlutedCap, BrandText, GelPolishText, GoldHousing_Cylinder). This plan is an **analysis + recommended approach** — no code will be executed until approved.
+The user has a real-world gel nail polish bottle (HANG PURE "Starry Cat Eye", 18ml) and wants to model it in Blender. The goal is a clean, modular breakdown so each part can be independently modified. The scene already has several objects started (GoldHousing, RedCore, BackLens, NeckCollar, FlutedCap, BrandText, GelPolishText, GoldHousing_Cylinder). This plan is an **analysis + recommended approach** — no code will be executed until approved.
 
 ---
 
@@ -48,7 +48,7 @@ The user has a real-world gel nail polish bottle (HANC PURE "Starry Cat Eye", 18
 - **Already started**: `FlutedCap` exists at Z=11.91; `GoldHousing_Cylinder` is the current WIP (basic cylinder, 4.5cm diameter, lattice taper)
 
 ### 7. BrandText / GelPolishText (Embossed Text)
-- "HANC PURE" and "Gel Polish" text embossed/debossed on the back of the housing
+- "HANG PURE" and "Gel Polish" text embossed/debossed on the back of the housing
 - **Approach**: Blender Text objects converted to mesh, slightly extruded, Boolean-subtracted or manually merged into GoldHousing surface
 - **Already started**: `BrandText` at Z=6.14, `GelPolishText` at Z=8.02
 
