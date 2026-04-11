@@ -7,7 +7,10 @@ quit.blend[0-9]
 # Blender caches and generated data
 blendcache_*/
 cache/
-renders/
+renders/*
+!renders/gel_polish_angles/
+renders/gel_polish_angles/*
+!renders/gel_polish_angles/*.png
 
 # General temporary files
 *.tmp
