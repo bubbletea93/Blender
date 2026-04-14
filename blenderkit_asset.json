@@ -1,0 +1,204 @@
+{
+    "pk":  82903,
+    "url":  "https://www.blenderkit.com/api/v1/assets/3db037e7-03f6-40ae-8c94-f827f3bf12b1/",
+    "id":  "3db037e7-03f6-40ae-8c94-f827f3bf12b1",
+    "assetBaseId":  "0eb97058-cf15-478e-be97-f7a482756a1a",
+    "versionNumber":  1,
+    "author":  {
+                   "id":  29793,
+                   "firstName":  "Jonathan",
+                   "lastName":  "Ramos",
+                   "gravatarHash":  "b518421783fee02657761eb2c4e5ef01",
+                   "avatar128":  "/avatar-redirect/8e1d6cba-6e22-4a46-938f-804cab95427e/128/",
+                   "avatar256":  "/avatar-redirect/8e1d6cba-6e22-4a46-938f-804cab95427e/256/",
+                   "avatar512":  "/avatar-redirect/8e1d6cba-6e22-4a46-938f-804cab95427e/512/",
+                   "aboutMe":  "Check Fab store: https://www.fab.com/sellers/Jonathan%20Ramos",
+                   "aboutMeUrl":  "https://jonramos.artstation.com",
+                   "fullName":  "Jonathan Ramos",
+                   "socialNetworks":  [
+                                          {
+                                              "socialNetwork":  {
+                                                                    "name":  "YouTube",
+                                                                    "icon":  "\u003ci class=\"fab fa-youtube\" title=\"YouTube\"\u003e\u003c/i\u003e\u003cspan class=\"sr-only\"\u003eYouTube\u003c/span\u003e",
+                                                                    "order":  1
+                                                                },
+                                              "url":  "https://www.youtube.com/@JonathanRamos-j3d-art"
+                                          },
+                                          {
+                                              "socialNetwork":  {
+                                                                    "name":  "ArtStation",
+                                                                    "icon":  "\u003ci class=\"fab fa-artstation\" title=\"ArtStation\"\u003e\u003c/i\u003e\u003cspan class=\"sr-only\"\u003eArtStation\u003c/span\u003e",
+                                                                    "order":  5
+                                                                },
+                                              "url":  "https://www.artstation.com/jonramos"
+                                          }
+                                      ]
+               },
+    "name":  "Anisotropic Metal",
+    "displayName":  "Anisotropic Metal",
+    "description":  "A procedural anisotropic metal. Compatible with Cycles and Eevee",
+    "descriptionHtml":  "\u003cp\u003eA procedural anisotropic metal. Compatible with Cycles and Eevee\u003c/p\u003e",
+    "assetType":  "material",
+    "category":  "metal",
+    "isFree":  true,
+    "isForSale":  false,
+    "basePrice":  null,
+    "tags":  [
+                 "metal",
+                 "anisotropic",
+                 "procedural"
+             ],
+    "license":  "royalty_free",
+    "parameters":  [
+                       {
+                           "parameterType":  "textureSizeMeters",
+                           "value":  1.0
+                       },
+                       {
+                           "parameterType":  "procedural",
+                           "value":  true
+                       },
+                       {
+                           "parameterType":  "materialStyle",
+                           "value":  "realistic"
+                       },
+                       {
+                           "parameterType":  "purePbr",
+                           "value":  false
+                       },
+                       {
+                           "parameterType":  "engine",
+                           "value":  "cycles"
+                       },
+                       {
+                           "parameterType":  "shaders",
+                           "value":  "principled"
+                       },
+                       {
+                           "parameterType":  "animated",
+                           "value":  false
+                       },
+                       {
+                           "parameterType":  "uv",
+                           "value":  false
+                       },
+                       {
+                           "parameterType":  "nodeCount",
+                           "value":  9
+                       },
+                       {
+                           "parameterType":  "textureCount",
+                           "value":  0
+                       },
+                       {
+                           "parameterType":  "megapixels",
+                           "value":  0
+                       },
+                       {
+                           "parameterType":  "imageAltTextGen4v",
+                           "value":  "Procedural anisotropic metal texture for 3D modeling in Blender, Cycles \u0026 Eevee compatible, PBR-ready."
+                       }
+                   ],
+    "sourceAppName":  "blender",
+    "sourceAppVersion":  "4.0.1",
+    "addonVersion":  "3.9.0",
+    "created":  "2024-03-04T22:33:20.162360+01:00",
+    "lastUserInteraction":  "2024-03-04T22:33:40.102751+01:00",
+    "verificationStatus":  "validated",
+    "isPrivate":  false,
+    "files":  [
+                  {
+                      "fileType":  "blend",
+                      "id":  338500,
+                      "downloadUrl":  "https://www.blenderkit.com/api/v1/downloads/338500/",
+                      "uuid":  null,
+                      "created":  "2024-03-04T22:33:39.290648+01:00",
+                      "isThumbnail":  false,
+                      "modified":  "2024-03-04T22:33:39.290662+01:00",
+                      "mimeType":  null,
+                      "resolution":  null,
+                      "fileUploadSize":  69754,
+                      "isFeatured":  false,
+                      "filename":  "assets/3db037e703f640ae8c94f827f3bf12b1/files/blend_c6c90937-9e46-487e-b3e0-55cffea8e990.blend",
+                      "flexFactor":  null
+                  },
+                  {
+                      "fileType":  "thumbnail",
+                      "id":  338499,
+                      "downloadUrl":  "https://www.blenderkit.com/api/v1/downloads/338499/",
+                      "uuid":  null,
+                      "fileThumbnail":  "https://public.blenderkit.com/thumbnails/assets/3db037e703f640ae8c94f827f3bf12b1/files/thumbnail_e0ba5873-a19e-431d-a927-ff5ab5c9c798.png.96x96_q85_crop-%2C.png",
+                      "fileThumbnailLarge":  "https://public.blenderkit.com/thumbnails/assets/3db037e703f640ae8c94f827f3bf12b1/files/thumbnail_e0ba5873-a19e-431d-a927-ff5ab5c9c798.png.1024x1024_q85_crop-%2C.png",
+                      "created":  "2024-03-04T22:33:34.782647+01:00",
+                      "isThumbnail":  true,
+                      "modified":  "2025-12-22T21:52:46.894008+01:00",
+                      "mimeType":  null,
+                      "resolution":  null,
+                      "fileUploadSize":  4495652,
+                      "width":  2048,
+                      "height":  2048,
+                      "isFeatured":  false,
+                      "filename":  "assets/3db037e703f640ae8c94f827f3bf12b1/files/thumbnail_e0ba5873-a19e-431d-a927-ff5ab5c9c798.png",
+                      "thumbnailSmallUrl":  "https://public.blenderkit.com/thumbnails/assets/3db037e703f640ae8c94f827f3bf12b1/files/thumbnail_e0ba5873-a19e-431d-a927-ff5ab5c9c798.png.256x256_q85_crop-%2C.png",
+                      "thumbnailMiddleUrl":  "https://public.blenderkit.com/thumbnails/assets/3db037e703f640ae8c94f827f3bf12b1/files/thumbnail_e0ba5873-a19e-431d-a927-ff5ab5c9c798.png.512x512_q85_crop-%2C.png",
+                      "thumbnailLargeUrl":  "https://public.blenderkit.com/thumbnails/assets/3db037e703f640ae8c94f827f3bf12b1/files/thumbnail_e0ba5873-a19e-431d-a927-ff5ab5c9c798.png.1024x1024_q85_crop-%2C.png",
+                      "thumbnailXlargeUrl":  "https://public.blenderkit.com/thumbnails/assets/3db037e703f640ae8c94f827f3bf12b1/files/thumbnail_e0ba5873-a19e-431d-a927-ff5ab5c9c798.png.2048x2048_q85_crop-%2C.png",
+                      "thumbnailSmallUrlNonsquared":  "https://public.blenderkit.com/thumbnails/assets/3db037e703f640ae8c94f827f3bf12b1/files/thumbnail_e0ba5873-a19e-431d-a927-ff5ab5c9c798.png.256x256_q85.png",
+                      "thumbnailMiddleUrlNonsquared":  "https://public.blenderkit.com/thumbnails/assets/3db037e703f640ae8c94f827f3bf12b1/files/thumbnail_e0ba5873-a19e-431d-a927-ff5ab5c9c798.png.512x512_q85.png",
+                      "thumbnailLargeUrlNonsquared":  "https://public.blenderkit.com/thumbnails/assets/3db037e703f640ae8c94f827f3bf12b1/files/thumbnail_e0ba5873-a19e-431d-a927-ff5ab5c9c798.png.1024x1024_q85.png",
+                      "thumbnailXlargeUrlNonsquared":  "https://public.blenderkit.com/thumbnails/assets/3db037e703f640ae8c94f827f3bf12b1/files/thumbnail_e0ba5873-a19e-431d-a927-ff5ab5c9c798.png.2048x2048_q85.png",
+                      "thumbnailSmallUrlWebp":  "https://public.blenderkit.com/thumbnails/assets/3db037e703f640ae8c94f827f3bf12b1/files/thumbnail_e0ba5873-a19e-431d-a927-ff5ab5c9c798.png.256x256_q85_crop-%2C.png.webp?webp_generated=1766521453",
+                      "thumbnailMiddleUrlWebp":  "https://public.blenderkit.com/thumbnails/assets/3db037e703f640ae8c94f827f3bf12b1/files/thumbnail_e0ba5873-a19e-431d-a927-ff5ab5c9c798.png.512x512_q85_crop-%2C.png.webp?webp_generated=1766521453",
+                      "thumbnailLargeUrlWebp":  "https://public.blenderkit.com/thumbnails/assets/3db037e703f640ae8c94f827f3bf12b1/files/thumbnail_e0ba5873-a19e-431d-a927-ff5ab5c9c798.png.1024x1024_q85_crop-%2C.png.webp?webp_generated=1766521453",
+                      "thumbnailXlargeUrlWebp":  "https://public.blenderkit.com/thumbnails/assets/3db037e703f640ae8c94f827f3bf12b1/files/thumbnail_e0ba5873-a19e-431d-a927-ff5ab5c9c798.png.2048x2048_q85_crop-%2C.png.webp?webp_generated=1766521453",
+                      "thumbnailSmallUrlNonsquaredWebp":  "https://public.blenderkit.com/thumbnails/assets/3db037e703f640ae8c94f827f3bf12b1/files/thumbnail_e0ba5873-a19e-431d-a927-ff5ab5c9c798.png.256x256_q85.png.webp?webp_generated=1766521453",
+                      "thumbnailMiddleUrlNonsquaredWebp":  "https://public.blenderkit.com/thumbnails/assets/3db037e703f640ae8c94f827f3bf12b1/files/thumbnail_e0ba5873-a19e-431d-a927-ff5ab5c9c798.png.512x512_q85.png.webp?webp_generated=1766521453",
+                      "thumbnailLargeUrlNonsquaredWebp":  "https://public.blenderkit.com/thumbnails/assets/3db037e703f640ae8c94f827f3bf12b1/files/thumbnail_e0ba5873-a19e-431d-a927-ff5ab5c9c798.png.1024x1024_q85.png.webp?webp_generated=1766521453",
+                      "thumbnailXlargeUrlNonsquaredWebp":  "https://public.blenderkit.com/thumbnails/assets/3db037e703f640ae8c94f827f3bf12b1/files/thumbnail_e0ba5873-a19e-431d-a927-ff5ab5c9c798.png.2048x2048_q85.png.webp?webp_generated=1766521453",
+                      "flexFactor":  1.0
+                  }
+              ],
+    "filesSize":  4565406,
+    "showMarketingLabels":  true,
+    "webpGeneratedTimestamp":  1766521453,
+    "score":  16.00000023841858,
+    "ratingsMedian":  {
+                          "bookmarks":  1.0,
+                          "workingHours":  0.20000000298023224,
+                          "quality":  8.0,
+                          "virtualPrice":  null
+                      },
+    "ratingsAverage":  {
+                           "bookmarks":  0.9611650485436893,
+                           "workingHours":  0.20000000298023224,
+                           "quality":  8.0,
+                           "virtualPrice":  null
+                       },
+    "ratingsCount":  {
+                         "bookmarks":  103,
+                         "workingHours":  1,
+                         "quality":  1,
+                         "virtualPrice":  0
+                     },
+    "ratingsSum":  {
+                       "bookmarks":  99.0,
+                       "workingHours":  0.20000000298023224,
+                       "quality":  8.0,
+                       "virtualPrice":  null,
+                       "score":  16.00000023841858
+                   },
+    "pageBlocks":  null,
+    "access":  "free",
+    "accessLabel":  "Free",
+    "videoLink":  "",
+    "lastBlendUpload":  "2024-03-04T21:33:39.290648Z",
+    "lastGltfGodotUpload":  null,
+    "lastThumbnailUpload":  "2024-03-04T21:33:34.782647Z",
+    "lastVideoUpload":  null,
+    "lastAnimatedThumbnailUpload":  null,
+    "lastZipFileUpload":  null,
+    "lastResolutionUpload":  null,
+    "lastGltfUpload":  null,
+    "lastWireThumbnailUpload":  null,
+    "lastPhotoThumbnailUpload":  null
+}
