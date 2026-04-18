@@ -1,3 +1,5 @@
+import math
+
 import bpy
 
 
@@ -8,6 +10,7 @@ BASE_MATERIAL = "Lacquer_Glitter02_Copper"
 TARGET_MATERIAL = "Lacquer_CatEye_Reference_Test"
 EMPTY_NAME = "CatEye_Mapping_Empty"
 GLITTER_GROUP = "Glitter_UVFix"
+CAT_EYE_ROTATION_DEGREES = 46.98
 
 
 def clear_node_tree(node_tree):
@@ -96,9 +99,24 @@ def build_material():
     texcoord = nodes.new("ShaderNodeTexCoord")
     texcoord.location = (-1900, 40)
 
+    rotation_value = nodes.new("ShaderNodeValue")
+    rotation_value.name = "Cat Eye Rotation"
+    rotation_value.label = "Cat Eye Rotation (deg)"
+    rotation_value.location = (-1900, -140)
+    rotation_value.outputs[0].default_value = CAT_EYE_ROTATION_DEGREES
+
+    rotation_to_radians = nodes.new("ShaderNodeMath")
+    rotation_to_radians.name = "Rotation To Radians"
+    rotation_to_radians.operation = "MULTIPLY"
+    rotation_to_radians.location = (-1670, -140)
+    rotation_to_radians.inputs[1].default_value = math.pi / 180.0
+
+    rotation_vector = nodes.new("ShaderNodeCombineXYZ")
+    rotation_vector.name = "Rotation Vector"
+    rotation_vector.location = (-1670, 40)
+
     mapping = nodes.new("ShaderNodeMapping")
-    mapping.location = (-1670, 40)
-    mapping.inputs["Rotation"].default_value = (0.0, 0.82, 0.0)
+    mapping.location = (-1440, 40)
     mapping.inputs["Scale"].default_value = (2.2, 1.0, 1.0)
 
     gradient = nodes.new("ShaderNodeTexGradient")
@@ -109,12 +127,16 @@ def build_material():
     band_ramp.name = "Soft Band Ramp"
     band_ramp.location = (-1180, 160)
     band_ramp.color_ramp.interpolation = "EASE"
-    band_ramp.color_ramp.elements[0].position = 0.34
+    band_ramp.color_ramp.elements[0].position = 0.24
     band_ramp.color_ramp.elements[0].color = (0.0, 0.0, 0.0, 1.0)
-    band_ramp.color_ramp.elements[1].position = 0.56
-    band_ramp.color_ramp.elements[1].color = (1.0, 1.0, 1.0, 1.0)
-    mid = band_ramp.color_ramp.elements.new(0.45)
-    mid.color = (0.62, 0.62, 0.62, 1.0)
+    band_ramp.color_ramp.elements[1].position = 0.78
+    band_ramp.color_ramp.elements[1].color = (0.0, 0.0, 0.0, 1.0)
+    shoulder_a = band_ramp.color_ramp.elements.new(0.39)
+    shoulder_a.color = (0.24, 0.24, 0.24, 1.0)
+    core = band_ramp.color_ramp.elements.new(0.53)
+    core.color = (0.74, 0.74, 0.74, 1.0)
+    shoulder_b = band_ramp.color_ramp.elements.new(0.67)
+    shoulder_b.color = (0.22, 0.22, 0.22, 1.0)
 
     wave = nodes.new("ShaderNodeTexWave")
     wave.location = (-1430, -120)
@@ -130,9 +152,9 @@ def build_material():
     wave_ramp.name = "Directional Streaks"
     wave_ramp.location = (-1180, -120)
     wave_ramp.color_ramp.interpolation = "LINEAR"
-    wave_ramp.color_ramp.elements[0].position = 0.42
-    wave_ramp.color_ramp.elements[0].color = (0.18, 0.18, 0.18, 1.0)
-    wave_ramp.color_ramp.elements[1].position = 0.72
+    wave_ramp.color_ramp.elements[0].position = 0.33
+    wave_ramp.color_ramp.elements[0].color = (0.45, 0.45, 0.45, 1.0)
+    wave_ramp.color_ramp.elements[1].position = 0.74
     wave_ramp.color_ramp.elements[1].color = (1.0, 1.0, 1.0, 1.0)
 
     band_bw = nodes.new("ShaderNodeRGBToBW")
@@ -148,8 +170,8 @@ def build_material():
     band_soften = nodes.new("ShaderNodeMath")
     band_soften.operation = "MULTIPLY_ADD"
     band_soften.location = (-500, 40)
-    band_soften.inputs[1].default_value = 0.45
-    band_soften.inputs[2].default_value = 0.38
+    band_soften.inputs[1].default_value = 0.60
+    band_soften.inputs[2].default_value = 0.06
 
     band_clamp = nodes.new("ShaderNodeClamp")
     band_clamp.location = (-280, 40)
@@ -172,15 +194,15 @@ def build_material():
 
     aniso = nodes.new("ShaderNodeBsdfAnisotropic")
     aniso.location = (780, -40)
-    aniso.inputs["Color"].default_value = (0.95, 0.72, 0.62, 1.0)
-    aniso.inputs["Roughness"].default_value = 0.18
-    aniso.inputs["Anisotropy"].default_value = 0.92
+    aniso.inputs["Color"].default_value = (0.82, 0.40, 0.20, 1.0)
+    aniso.inputs["Roughness"].default_value = 0.32
+    aniso.inputs["Anisotropy"].default_value = 0.84
     aniso.inputs["Rotation"].default_value = 0.0
 
     aniso_weight = nodes.new("ShaderNodeMath")
     aniso_weight.operation = "MULTIPLY"
     aniso_weight.location = (0, -220)
-    aniso_weight.inputs[1].default_value = 0.55
+    aniso_weight.inputs[1].default_value = 0.08
 
     color_mix_1 = nodes.new("ShaderNodeMix")
     color_mix_1.data_type = "RGBA"
@@ -194,31 +216,31 @@ def build_material():
 
     color_1_base = nodes.new("ShaderNodeRGB")
     color_1_base.location = (-220, 360)
-    color_1_base.outputs[0].default_value = (0.70, 0.36, 0.34, 1.0)
+    color_1_base.outputs[0].default_value = (0.64, 0.19, 0.09, 1.0)
 
     color_1_band = nodes.new("ShaderNodeRGB")
     color_1_band.location = (-220, 220)
-    color_1_band.outputs[0].default_value = (0.88, 0.69, 0.78, 1.0)
+    color_1_band.outputs[0].default_value = (0.82, 0.44, 0.24, 1.0)
 
     color_2_base = nodes.new("ShaderNodeRGB")
     color_2_base.location = (-220, 160)
-    color_2_base.outputs[0].default_value = (0.16, 0.05, 0.09, 1.0)
+    color_2_base.outputs[0].default_value = (0.04, 0.007, 0.005, 1.0)
 
     color_2_band = nodes.new("ShaderNodeRGB")
     color_2_band.location = (-220, 20)
-    color_2_band.outputs[0].default_value = (0.42, 0.20, 0.28, 1.0)
+    color_2_band.outputs[0].default_value = (0.24, 0.07, 0.035, 1.0)
 
     rough_mix = nodes.new("ShaderNodeMath")
     rough_mix.operation = "MULTIPLY_ADD"
     rough_mix.location = (240, -40)
-    rough_mix.inputs[1].default_value = -0.10
-    rough_mix.inputs[2].default_value = 0.14
+    rough_mix.inputs[1].default_value = -0.08
+    rough_mix.inputs[2].default_value = 0.18
 
     metallic_mix = nodes.new("ShaderNodeMath")
     metallic_mix.operation = "MULTIPLY_ADD"
     metallic_mix.location = (240, -220)
-    metallic_mix.inputs[1].default_value = 0.12
-    metallic_mix.inputs[2].default_value = 0.46
+    metallic_mix.inputs[1].default_value = 0.08
+    metallic_mix.inputs[2].default_value = 0.42
 
     clamp_rough = nodes.new("ShaderNodeClamp")
     clamp_rough.location = (470, -40)
@@ -227,6 +249,9 @@ def build_material():
     clamp_metal.location = (470, -220)
 
     links.new(texcoord.outputs["Object"], mapping.inputs["Vector"])
+    links.new(rotation_value.outputs["Value"], rotation_to_radians.inputs[0])
+    links.new(rotation_to_radians.outputs["Value"], rotation_vector.inputs["Y"])
+    links.new(rotation_vector.outputs["Vector"], mapping.inputs["Rotation"])
     links.new(mapping.outputs["Vector"], gradient.inputs["Vector"])
     links.new(mapping.outputs["Vector"], wave.inputs["Vector"])
 

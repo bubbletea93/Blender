@@ -1,3 +1,5 @@
+import math
+
 import bpy
 
 
@@ -6,6 +8,7 @@ TARGET_MATERIAL = "Lacquer_CatEye_Mesh"
 BASE_MATERIAL = "Lacquer_Glitter02_Copper"
 GLITTER_GROUP = "Glitter_UVFix"
 REFERENCE_OBJECTS = ["CatEye_TestSphere", "Lacquer_CompareSphere"]
+CAT_EYE_ROTATION_DEGREES = 41.25
 
 
 def clear_node_tree(node_tree):
@@ -75,12 +78,24 @@ def build_material():
     texcoord = nodes.new("ShaderNodeTexCoord")
     texcoord.location = (-1950, 40)
 
+    rotation_value = create_value(nodes, "Cat Eye Rotation", CAT_EYE_ROTATION_DEGREES, (-1950, -140))
+    rotation_value.label = "Cat Eye Rotation (deg)"
+
+    rotation_to_radians = nodes.new("ShaderNodeMath")
+    rotation_to_radians.name = "Rotation To Radians"
+    rotation_to_radians.operation = "MULTIPLY"
+    rotation_to_radians.location = (-1710, -140)
+    rotation_to_radians.inputs[1].default_value = math.pi / 180.0
+
+    rotation_vector = nodes.new("ShaderNodeCombineXYZ")
+    rotation_vector.name = "Rotation Vector"
+    rotation_vector.location = (-1710, 40)
+
     mapping = nodes.new("ShaderNodeMapping")
     mapping.name = "Diagonal Mapping"
-    mapping.location = (-1710, 40)
+    mapping.location = (-1470, 40)
     # Lacquer face is the Y/Z plane. Rotate the mask so the broad band leans
     # upper-left to lower-right like the reference photos.
-    mapping.inputs["Rotation"].default_value = (0.0, 0.0, 0.72)
     mapping.inputs["Scale"].default_value = (1.0, 2.4, 1.0)
 
     gradient = nodes.new("ShaderNodeTexGradient")
@@ -91,12 +106,16 @@ def build_material():
     band_ramp.name = "Static Band Shape"
     band_ramp.location = (-1220, 220)
     band_ramp.color_ramp.interpolation = "EASE"
-    band_ramp.color_ramp.elements[0].position = 0.28
+    band_ramp.color_ramp.elements[0].position = 0.24
     band_ramp.color_ramp.elements[0].color = (0.0, 0.0, 0.0, 1.0)
-    band_ramp.color_ramp.elements[1].position = 0.66
-    band_ramp.color_ramp.elements[1].color = (1.0, 1.0, 1.0, 1.0)
-    mid = band_ramp.color_ramp.elements.new(0.46)
-    mid.color = (0.74, 0.74, 0.74, 1.0)
+    band_ramp.color_ramp.elements[1].position = 0.78
+    band_ramp.color_ramp.elements[1].color = (0.0, 0.0, 0.0, 1.0)
+    shoulder_a = band_ramp.color_ramp.elements.new(0.39)
+    shoulder_a.color = (0.26, 0.26, 0.26, 1.0)
+    core = band_ramp.color_ramp.elements.new(0.53)
+    core.color = (0.78, 0.78, 0.78, 1.0)
+    shoulder_b = band_ramp.color_ramp.elements.new(0.67)
+    shoulder_b.color = (0.24, 0.24, 0.24, 1.0)
 
     wave = nodes.new("ShaderNodeTexWave")
     wave.location = (-1470, -40)
@@ -112,9 +131,9 @@ def build_material():
     wave_ramp.name = "Directional Streaks"
     wave_ramp.location = (-1220, -40)
     wave_ramp.color_ramp.interpolation = "LINEAR"
-    wave_ramp.color_ramp.elements[0].position = 0.36
-    wave_ramp.color_ramp.elements[0].color = (0.28, 0.28, 0.28, 1.0)
-    wave_ramp.color_ramp.elements[1].position = 0.72
+    wave_ramp.color_ramp.elements[0].position = 0.33
+    wave_ramp.color_ramp.elements[0].color = (0.45, 0.45, 0.45, 1.0)
+    wave_ramp.color_ramp.elements[1].position = 0.74
     wave_ramp.color_ramp.elements[1].color = (1.0, 1.0, 1.0, 1.0)
 
     reflect_to_object = nodes.new("ShaderNodeVectorTransform")
@@ -146,9 +165,11 @@ def build_material():
     view_ramp.location = (-760, -420)
     view_ramp.color_ramp.interpolation = "EASE"
     view_ramp.color_ramp.elements[0].position = 0.0
-    view_ramp.color_ramp.elements[0].color = (1.0, 1.0, 1.0, 1.0)
-    view_ramp.color_ramp.elements[1].position = 0.22
-    view_ramp.color_ramp.elements[1].color = (0.0, 0.0, 0.0, 1.0)
+    view_ramp.color_ramp.elements[0].color = (0.82, 0.82, 0.82, 1.0)
+    view_ramp.color_ramp.elements[1].position = 0.34
+    view_ramp.color_ramp.elements[1].color = (0.10, 0.10, 0.10, 1.0)
+    view_mid = view_ramp.color_ramp.elements.new(0.18)
+    view_mid.color = (0.42, 0.42, 0.42, 1.0)
 
     band_bw = nodes.new("ShaderNodeRGBToBW")
     band_bw.location = (-990, 220)
@@ -170,8 +191,8 @@ def build_material():
     band_plus_view = nodes.new("ShaderNodeMath")
     band_plus_view.operation = "MULTIPLY_ADD"
     band_plus_view.location = (-280, -60)
-    band_plus_view.inputs[1].default_value = 0.58
-    band_plus_view.inputs[2].default_value = 0.04
+    band_plus_view.inputs[1].default_value = 0.62
+    band_plus_view.inputs[2].default_value = 0.01
 
     band_clamp = nodes.new("ShaderNodeClamp")
     band_clamp.location = (-40, -60)
@@ -194,15 +215,15 @@ def build_material():
 
     aniso = nodes.new("ShaderNodeBsdfAnisotropic")
     aniso.location = (1030, 40)
-    aniso.inputs["Color"].default_value = (0.98, 0.74, 0.64, 1.0)
-    aniso.inputs["Roughness"].default_value = 0.16
-    aniso.inputs["Anisotropy"].default_value = 0.9
+    aniso.inputs["Color"].default_value = (0.82, 0.40, 0.20, 1.0)
+    aniso.inputs["Roughness"].default_value = 0.34
+    aniso.inputs["Anisotropy"].default_value = 0.82
     aniso.inputs["Rotation"].default_value = 0.0
 
     aniso_weight = nodes.new("ShaderNodeMath")
     aniso_weight.operation = "MULTIPLY"
     aniso_weight.location = (280, -320)
-    aniso_weight.inputs[1].default_value = 0.24
+    aniso_weight.inputs[1].default_value = 0.055
 
     color_mix_1 = nodes.new("ShaderNodeMix")
     color_mix_1.data_type = "RGBA"
@@ -214,22 +235,22 @@ def build_material():
     color_mix_2.blend_type = "MIX"
     color_mix_2.location = (260, 180)
 
-    color_1_base = create_rgb(nodes, "Base Color 1", (0.84, 0.28, 0.09, 1.0), (0, 460))
-    color_1_band = create_rgb(nodes, "Band Color 1", (0.92, 0.57, 0.46, 1.0), (0, 320))
-    color_2_base = create_rgb(nodes, "Base Color 2", (0.06, 0.008, 0.006, 1.0), (0, 280))
-    color_2_band = create_rgb(nodes, "Band Color 2", (0.18, 0.05, 0.06, 1.0), (0, 140))
+    color_1_base = create_rgb(nodes, "Base Color 1", (0.64, 0.19, 0.09, 1.0), (0, 460))
+    color_1_band = create_rgb(nodes, "Band Color 1", (0.82, 0.44, 0.24, 1.0), (0, 320))
+    color_2_base = create_rgb(nodes, "Base Color 2", (0.04, 0.007, 0.005, 1.0), (0, 280))
+    color_2_band = create_rgb(nodes, "Band Color 2", (0.24, 0.07, 0.035, 1.0), (0, 140))
 
     rough_mix = nodes.new("ShaderNodeMath")
     rough_mix.operation = "MULTIPLY_ADD"
     rough_mix.location = (520, -20)
-    rough_mix.inputs[1].default_value = -0.06
-    rough_mix.inputs[2].default_value = 0.14
+    rough_mix.inputs[1].default_value = -0.08
+    rough_mix.inputs[2].default_value = 0.18
 
     metallic_mix = nodes.new("ShaderNodeMath")
     metallic_mix.operation = "MULTIPLY_ADD"
     metallic_mix.location = (520, -220)
-    metallic_mix.inputs[1].default_value = 0.05
-    metallic_mix.inputs[2].default_value = 0.47
+    metallic_mix.inputs[1].default_value = 0.08
+    metallic_mix.inputs[2].default_value = 0.42
 
     clamp_rough = nodes.new("ShaderNodeClamp")
     clamp_rough.location = (760, -20)
@@ -238,6 +259,9 @@ def build_material():
     clamp_metal.location = (760, -220)
 
     links.new(texcoord.outputs["Object"], mapping.inputs["Vector"])
+    links.new(rotation_value.outputs["Value"], rotation_to_radians.inputs[0])
+    links.new(rotation_to_radians.outputs["Value"], rotation_vector.inputs["Z"])
+    links.new(rotation_vector.outputs["Vector"], mapping.inputs["Rotation"])
     links.new(mapping.outputs["Vector"], gradient.inputs["Vector"])
     links.new(mapping.outputs["Vector"], wave.inputs["Vector"])
 
