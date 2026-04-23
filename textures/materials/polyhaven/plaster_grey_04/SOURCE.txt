@@ -1,0 +1,8 @@
+Source: Poly Haven - Plaster Grey 04
+Asset page: https://polyhaven.com/a/plaster_grey_04
+License: CC0
+
+Downloaded maps:
+- plaster_grey_04_diff_2k.jpg
+- plaster_grey_04_rough_2k.jpg
+- plaster_grey_04_nor_gl_2k.jpg
