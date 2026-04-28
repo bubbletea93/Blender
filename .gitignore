@@ -22,6 +22,9 @@ renders/gel_polish_angles/*
 __pycache__/
 *.py[cod]
 
+# Extracted video frames (large binary assets)
+references/lapohka_3d_motion_frames/
+
 # Editor and OS files
 .vscode/
 .idea/
