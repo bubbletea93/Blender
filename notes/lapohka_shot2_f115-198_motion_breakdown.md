@@ -12,16 +12,27 @@
 > turns (0→960°), amplitude 0.21→0 rad hitting zero only at f161 — it wanders
 > onto the edge like a settling coin, even nibbling over it near f154, no
 > stop-then-slide. The spin dies at +680°
-> (~f160), i.e. 40° SHORT of facing camera — the pre-fall pose is deliberately
+> (~f160), i.e. 40° SHORT of facing camera — the settle pose is deliberately
 > candid, never label-front — then drifts to +700° during the fall. Holds still
-> f161–f163, then TIPS from f163 pivoting exactly at the Rock origin (base center =
-> edge: no contact-arc compensation needed; −8° f168 → −67° f182 release) into a
-> slow-mo fall (z=−0.00023t², +Y kick 0.0019 m/f) reaching ~−130° and ~6cm below
-> plinth top by f198. Camera follows from f163 via CameraTrack.y + CameraTarget
-> local y/z riding the bottle COM, keeping it centered, PLUS a dutch roll
-> (CameraTrack.rotation_x 0 → −24° f163→198, same sign as the tip) that survives
-> the Track-To because the constraint's up-vector inherits the rig roll — this
-> reproduces the reference's diagonal falling-shot framing.
+> f161–f163, then TIPS from f163 pivoting exactly at the Rock origin (base
+> center = edge; −8° f168 → −67° f182 release) into a slow-mo fall
+> (z=−0.00023t², +Y kick 0.0019 m/f) reaching ~−130° and ~6cm below plinth top
+> by f198. Camera follows via CameraTrack.y + CameraTarget local y/z riding the
+> bottle COM, and ROTATES WITH THE TUMBLE (reference shot-3 grammar from
+> f199–284: apparent tilt ramps 0→~40° over the first ~15 fall frames then
+> HOLDS 38–42°, ~1:1 roll after the ramp; camera ends slightly above the
+> product looking down ~10°). Roll keys on CameraTrack.rotation_x: 0 at f161 →
+> −9° f176 → −27° f182 → −59° f190 → −88° f198 (≈ tip angle − 40° after ramp).
+> CRITICAL RIG FACT: Track-To CANCELS parent roll (up re-levels to world Z)
+> unless `use_target_z=True` — it is enabled; up follows CameraTarget's rolled
+> Z. Aim-target local keys are counter-rotated into rolled track space
+> (local = R_x(−roll)·(COM − track_origin)); regenerate if roll changes.
+> HISTORY (2026-07-14): two alternatives were tried and REJECTED by Danh —
+> (a) retiming so the tip only reaches −13° at f198 with a near-locked camera
+> (matching the reference cut where the fall belongs to shot 3), and (b) a
+> camera descent to graze the plinth top copying the ref end composition.
+> This full-fall + rotate-with-camera version is the KEPT one; don't re-apply
+> those variants without asking.
 > Backdrop and plinth were extended downward (backdrop z→−0.5, y→0.78; plinth is
 > now a pedestal to z=−0.25) to cover the below-edge framing. Sections below
 > describe the ORIGINAL reference for f115–f158; the tail sections (D/E, camera
