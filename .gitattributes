@@ -3,6 +3,7 @@
 
 # Blender scene files
 *.blend filter=lfs diff=lfs merge=lfs -text
+*.liquigen filter=lfs diff=lfs merge=lfs -text
 
 # Binary source assets
 *.fbx filter=lfs diff=lfs merge=lfs -text
