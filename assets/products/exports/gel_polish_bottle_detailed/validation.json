@@ -1,0 +1,211 @@
+{
+  "source_asset": "assets\\products\\gel_polish_bottle.blend",
+  "source_sha256": "3726d4a436a848221dc823e4f9cc33fb17769822818945c4d434ace06721bbb8",
+  "source_frame": 48,
+  "units": "metres",
+  "coordinate_space": "Housing mesh local",
+  "fbx_axis_up": "Y",
+  "fbx_axis_forward": "-Z",
+  "parts": {
+    "Bottle_Housing_Gold": {
+      "source_object": "Housing",
+      "original_topology": {
+        "vertices": 672798,
+        "faces": 672256,
+        "boundary_edges": 2624,
+        "nonmanifold_edges": 3648,
+        "loose_vertices": 0,
+        "degenerate_faces": 0,
+        "signed_volume_m3": 2.9116189584982276e-05
+      },
+      "split_branch_edges": 1024,
+      "capped_openings": 11,
+      "topology": {
+        "vertices": 675358,
+        "faces": 1350698,
+        "boundary_edges": 0,
+        "nonmanifold_edges": 0,
+        "loose_vertices": 0,
+        "degenerate_faces": 0,
+        "signed_volume_m3": 3.7595788469953826e-05
+      },
+      "surface_vertex_positions_unchanged": true,
+      "materials": [
+        "Cap_Gold",
+        null
+      ],
+      "fbx_reimport_max_vertex_error_m": 1.0571665830443057e-08,
+      "reimport_topology": {
+        "vertices": 675358,
+        "faces": 1350698,
+        "boundary_edges": 0,
+        "nonmanifold_edges": 0,
+        "loose_vertices": 0,
+        "degenerate_faces": 0,
+        "signed_volume_m3": 3.7595788469953826e-05
+      },
+      "uv_max_errors": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "final_cleanup": {
+        "removed_vertices": 0,
+        "max_source_vertex_to_cleaned_surface_vertex_m": 0.0,
+        "zero_area_faces_before": 0,
+        "zero_area_faces_after": 0
+      }
+    },
+    "Bottle_Cap_Detailed": {
+      "source_object": "New_Cap",
+      "original_topology": {
+        "vertices": 24718,
+        "faces": 23978,
+        "boundary_edges": 0,
+        "nonmanifold_edges": 0,
+        "loose_vertices": 0,
+        "degenerate_faces": 0,
+        "signed_volume_m3": 1.0701624527355476e-05
+      },
+      "split_branch_edges": 0,
+      "capped_openings": 0,
+      "topology": {
+        "vertices": 24705,
+        "faces": 49406,
+        "boundary_edges": 0,
+        "nonmanifold_edges": 0,
+        "loose_vertices": 0,
+        "degenerate_faces": 1,
+        "signed_volume_m3": 1.0701624585798666e-05
+      },
+      "surface_vertex_positions_unchanged": false,
+      "materials": [
+        "Cap_Gold"
+      ],
+      "fbx_reimport_max_vertex_error_m": 2.236577612843579e-08,
+      "reimport_topology": {
+        "vertices": 24705,
+        "faces": 49406,
+        "boundary_edges": 0,
+        "nonmanifold_edges": 0,
+        "loose_vertices": 0,
+        "degenerate_faces": 1,
+        "signed_volume_m3": 1.0701624585798666e-05
+      },
+      "final_cleanup": {
+        "removed_vertices": 13,
+        "max_source_vertex_to_cleaned_surface_vertex_m": 2.837623469531536e-09,
+        "zero_area_faces_before": 10,
+        "zero_area_faces_after": 0
+      },
+      "pre_cleanup_uv_max_errors": [
+        0.0
+      ]
+    },
+    "Bottle_FrontLens_Glass": {
+      "source_object": "FrontLens",
+      "original_topology": {
+        "vertices": 961,
+        "faces": 960,
+        "boundary_edges": 96,
+        "nonmanifold_edges": 96,
+        "loose_vertices": 0,
+        "degenerate_faces": 0,
+        "signed_volume_m3": 1.4716442882539974e-05
+      },
+      "split_branch_edges": 0,
+      "capped_openings": 1,
+      "topology": {
+        "vertices": 961,
+        "faces": 1918,
+        "boundary_edges": 0,
+        "nonmanifold_edges": 0,
+        "loose_vertices": 0,
+        "degenerate_faces": 0,
+        "signed_volume_m3": 8.28116679932048e-06
+      },
+      "surface_vertex_positions_unchanged": true,
+      "materials": [
+        "FrontLens_Glass"
+      ],
+      "fbx_reimport_max_vertex_error_m": 6.6415685847290546e-09,
+      "reimport_topology": {
+        "vertices": 961,
+        "faces": 1918,
+        "boundary_edges": 0,
+        "nonmanifold_edges": 0,
+        "loose_vertices": 0,
+        "degenerate_faces": 0,
+        "signed_volume_m3": 8.28116679932048e-06
+      },
+      "uv_max_errors": [],
+      "final_cleanup": {
+        "removed_vertices": 0,
+        "max_source_vertex_to_cleaned_surface_vertex_m": 0.0,
+        "zero_area_faces_before": 0,
+        "zero_area_faces_after": 0
+      }
+    },
+    "Bottle_Lacquer_Pearl": {
+      "source_object": "Lacquer",
+      "original_topology": {
+        "vertices": 13633,
+        "faces": 13440,
+        "boundary_edges": 384,
+        "nonmanifold_edges": 384,
+        "loose_vertices": 0,
+        "degenerate_faces": 0,
+        "signed_volume_m3": -1.4194125209146372e-05
+      },
+      "split_branch_edges": 0,
+      "capped_openings": 1,
+      "topology": {
+        "vertices": 13633,
+        "faces": 27262,
+        "boundary_edges": 0,
+        "nonmanifold_edges": 0,
+        "loose_vertices": 0,
+        "degenerate_faces": 0,
+        "signed_volume_m3": 7.76374048599047e-06
+      },
+      "surface_vertex_positions_unchanged": true,
+      "materials": [
+        "LacquerShade_Swap_AB"
+      ],
+      "fbx_reimport_max_vertex_error_m": 6.558652877043862e-09,
+      "reimport_topology": {
+        "vertices": 13633,
+        "faces": 27262,
+        "boundary_edges": 0,
+        "nonmanifold_edges": 0,
+        "loose_vertices": 0,
+        "degenerate_faces": 0,
+        "signed_volume_m3": 7.76374048599047e-06
+      },
+      "uv_max_errors": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "final_cleanup": {
+        "removed_vertices": 0,
+        "max_source_vertex_to_cleaned_surface_vertex_m": 0.0,
+        "zero_area_faces_before": 0,
+        "zero_area_faces_after": 0
+      }
+    }
+  },
+  "liquigen_host_import_verified": false,
+  "blender_shader_restoration_required_for_exact_render": true,
+  "source_unchanged": true,
+  "fbx_file": "assets\\products\\exports\\gel_polish_bottle_detailed\\gel_polish_bottle_detailed.fbx",
+  "fbx_bytes": 55868108,
+  "preview_provenance": "Reimported FBX meshes rendered in Cycles with the original Blender materials explicitly restored.",
+  "companion_render_strategy": "Original evaluated visual surfaces and shader graphs; matching closed FBX objects retained in a hidden collection.",
+  "final_render_provenance": "Companion Blender file renders the original optical surfaces. The closed FBX retains their vertex positions but adds closure faces needed for simulation.",
+  "final_renders": [
+    "renders\\detailed_fbx_review\\final_detailed_package_front.png",
+    "renders\\detailed_fbx_review\\final_detailed_package_back.png"
+  ],
+  "fbx_sha256": "6ced3ca6e6e875be9d4c3effb87f1c300549458ac7f310940e6ef04096fc32a5"
+}

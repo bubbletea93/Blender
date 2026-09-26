@@ -12,6 +12,13 @@ renders/*
 renders/gel_polish_angles/*
 !renders/gel_polish_angles/*.png
 
+# Required collider source; keep generated Shot 3 caches and reviews ignored.
+!renders/shot3_liquigen_review/
+renders/shot3_liquigen_review/*
+!renders/shot3_liquigen_review/inputs/
+renders/shot3_liquigen_review/inputs/*
+!renders/shot3_liquigen_review/inputs/shot3_proxy_clearance_v010.fbx
+
 # General temporary files
 *.tmp
 *.temp
@@ -22,8 +29,9 @@ renders/gel_polish_angles/*
 __pycache__/
 *.py[cod]
 
-# Extracted video frames (large binary assets)
+# Extracted video frames and reference shot clips (large binary assets)
 references/lapohka_3d_motion_frames/
+references/lapohka_3d_motion_shots/
 
 # Editor and OS files
 .vscode/

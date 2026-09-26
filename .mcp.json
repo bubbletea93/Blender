@@ -5,10 +5,12 @@
       "args": [
         "--from",
         "git+https://projects.blender.org/lab/blender_mcp.git@v1.0.0#subdirectory=mcp",
+        "--with",
+        "mcp<2",
         "blender-mcp"
       ],
       "env": {
-        "BLENDER_PATH": "C:\\Program Files\\Blender Foundation\\Blender 5.2\\blender.exe"
+        "BLENDER_PATH": "C:\\Program Files\\Blender Foundation\\Blender 5.1\\blender.exe"
       }
     }
   }
