@@ -2,8 +2,8 @@
 import bpy,sys,json,time,re
 from pathlib import Path
 root=Path(__file__).resolve().parents[1]
-version=re.search(r'_v(\d+)\.blend$',bpy.data.filepath).group(1)
-work=root/f'renders/shot5_polish_finale_v{version}'
+match=re.search(r'_v(\d+)\.blend$',bpy.data.filepath)
+work=root/(f'renders/shot5_polish_finale_v{match.group(1)}' if match else 'renders/shot5_polish_finale_review')
 s=bpy.context.scene
 args=sys.argv[sys.argv.index('--')+1:] if '--' in sys.argv else ['stills']
 preview=args[0]=='preview'

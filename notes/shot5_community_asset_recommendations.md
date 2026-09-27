@@ -57,12 +57,14 @@ tip is parented to the bowl with its own local response; the wand remains
 beside it with its existing delayed movement. The glass vessel inherits the
 existing holder motion, and the brushes keep their independent sway.
 
-## Acquired originals and reusable derivatives
+## Acquired originals and retired derivatives
 
-The v003 scene is preserved. The working scene is
-`scenes/gel_polish_lapohka_shot5_376_528_polish_finale_v004.blend`.
+This section records the earlier v004 concept. The final shot uses the brand's
+sample board and 36-bottle rack instead. The unused tray/glass-holder derivatives
+and old shot files were removed during production cleanup; earlier tracked
+versions remain available in Git. Original downloads and license records remain.
 
-| Asset | Preserved original | Reusable derivative |
+| Asset | Preserved original | Retired derivative (removed) |
 | --- | --- | --- |
 | Organic Ceramic Tray | `assets/props/community/organic_ceramic_tray/source/organic-ceramic-tray_1K_f62ddb9e-d951-4b54-ad9a-5e9c01cb6cd5.blend` | `assets/props/community/manicure_community_props.blend`, collection `Prop_Community_OrganicCeramicTray` |
 | Glass Cup | `assets/props/community/glass_cup_cczero/source/Glass Cup.blend` | `assets/props/community/glass_cup_cczero/brush_holder.blend`, collection `Prop_CommunityGlassBrushHolder` |
@@ -74,7 +76,7 @@ its own `provenance.json` with the source URL, author, license, acquisition
 method and SHA-256. Download and sign-in handoffs are resolved; no further
 manual acquisition steps are needed.
 
-## Validation status
+## Historical v004 validation
 
 The glass replacement passed its specific brush/cup geometry check at 306
 samples, including quarter-frame sampling during impact and recovery:

@@ -6,11 +6,11 @@ import imageio_ffmpeg
 
 root=Path(__file__).resolve().parents[1]
 parser=argparse.ArgumentParser(description=__doc__)
-parser.add_argument('--version',default='v003')
+parser.add_argument('--version',default='current')
 version=parser.parse_args().version
-if len(version)!=4 or not version.startswith('v') or not version[1:].isdigit():
-    parser.error('--version must use vNNN format')
-work=root/f'renders/shot5_polish_finale_{version}'
+if version!='current' and (len(version)!=4 or not version.startswith('v') or not version[1:].isdigit()):
+    parser.error('--version must be current or use vNNN format')
+work=root/('renders/shot5_polish_finale_review' if version=='current' else f'renders/shot5_polish_finale_{version}')
 reference=root/'renders/shot5_polish_finale_v001'
 delivery=root/'renders/lapohka/shot5_f376-528';delivery.mkdir(parents=True,exist_ok=True)
 font=ImageFont.truetype('C:/Windows/Fonts/arial.ttf',22)
@@ -49,7 +49,7 @@ subprocess.run(cmd,check=True)
 result=subprocess.run([ffmpeg,'-hide_banner','-v','error','-i',str(video),'-map','0:v:0','-f','null','-','-progress','pipe:1','-nostats'],capture_output=True,text=True,check=True)
 decoded=[int(x.split('=')[1]) for x in result.stdout.splitlines() if x.startswith('frame=')][-1]
 assert decoded==153,(decoded,result.stdout)
-manifest={'scene':f'scenes/gel_polish_lapohka_shot5_376_528_polish_finale_{version}.blend','video':str(video.relative_to(root)),
+manifest={'scene':'scenes/gel_polish_lapohka_shot5_376_528.blend' if version=='current' else f'scenes/gel_polish_lapohka_shot5_376_528_polish_finale_{version}.blend','video':str(video.relative_to(root)),
  'frames':[376,528],'decoded_frames':decoded,'fps':30,'resolution':[960,540],'samples':64,'purpose':'Camera, lighting and animation review; not a production render',
  'reference_comparison':str((work/'reference_comparison.jpg').relative_to(root)),'completed':datetime.datetime.now().isoformat()}
 (delivery/f'lapohka_s5_f376-528_polish_finale_{version}_manifest.json').write_text(json.dumps(manifest,indent=2))
