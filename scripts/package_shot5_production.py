@@ -17,12 +17,12 @@ import imageio_ffmpeg
 
 ROOT=Path(__file__).resolve().parents[1]
 parser=argparse.ArgumentParser(description=__doc__)
-parser.add_argument('--frames',type=Path,default=ROOT/'renders/shot5_polish_finale_production_4k/production_4k')
-parser.add_argument('--output',type=Path,default=ROOT/'renders/lapohka/shot5_f376-528')
+parser.add_argument('--frames',type=Path,default=ROOT/'renders/gel_polish_lapohka_shot5_376_528/frames')
+parser.add_argument('--output',type=Path,default=ROOT/'renders/gel_polish_lapohka_shot5_376_528')
 args=parser.parse_args()
 START,END,FPS=376,528,30
 args.output.mkdir(parents=True,exist_ok=True)
-manifest_path=args.output/'shot5_production_manifest.json'
+manifest_path=args.output/'lapohka_s5_f376-528_polish_finale_4k_manifest.json'
 
 def check_frame(frame):
     path=args.frames/f'frame_{frame:04d}.png'

@@ -17,24 +17,32 @@ per-shot local frames.
 
 ## Directory layout
 
-Video renders go under `renders/lapohka/`, one folder per reference shot. The
-folder name carries the **reference** range so the tree mirrors
-`references/lapohka_3d_motion_shots/` one-to-one:
+Each shot has one scene file and one render folder with the same name,
+`gel_polish_lapohka_shot<N>_<start>_<end>`. The range is the frames the scene
+actually covers (Shot 1 runs 0-82, past the 0-56 reference, because of the added
+blue spin).
 
 ```
-renders/lapohka/
-  shot1_f0-56/
-  shot2_f57-198/
-  shot3_f199-284/
-  shot4_f285-375/
-  shot5_f376-528/
-  _tests/           # material/shader reviews, not shot work
-  _legacy_24fps/    # pre-Lapohka clips kept for reference only
-  README.md         # live manifest of what is actually on disk
+scenes/
+  gel_polish_lapohka_shot1_0_82.blend
+  gel_polish_lapohka_shot2_57_198.blend
+  gel_polish_lapohka_shot3_199_284.blend          # + .liquigen project and _liquigen_proxy.fbx
+  gel_polish_lapohka_shot4_285_375.blend
+  gel_polish_lapohka_shot5_376_528.blend
+renders/
+  gel_polish_lapohka_shot<N>_<start>_<end>/
+    frames/frame_####.png                        # 4K 16-bit production sequence (+ per-frame .json where the resumable renderer wrote them)
+    lapohka_s<N>_f<start>-<end>_<slug>[_vNNN].mp4 # H.264 playback copy
+    ..._master*.mov                              # ProRes 4444 XQ master
+    ..._manifest.json                            # encode settings, checksums, source paths
+cache/
+  gel_polish_lapohka_shot3_199_284/              # LiquiGen v010 Alembic caches loaded by Shot 3
 ```
 
-Note that `renders/*` is gitignored, so the tree and its manifest are local
-only. This file is the tracked copy of the convention.
+Every scene's `render.filepath` is `//../renders/<scene name>/frames/frame_`, so
+rendering a scene writes straight into its folder. `renders/*` and `cache/` are
+gitignored, so the tree is local only. This file is the tracked copy of the
+convention.
 
 ## Filename convention
 
@@ -45,7 +53,7 @@ lapohka_s<shot>_f<start>-<end>_<slug>_v<NNN>.mp4
 - `s<shot>` - which reference shot this render is aiming at.
 - `f<start>-<end>` - the **actual** frame range encoded in this file, which is
   not always the full reference range. We render parts. A 38-frame slice of
-  Shot 3 is `f214-251`, not `f199-284`. The folder says what we are matching;
+  Shot 3 is `f214-251`, not `f199-284`. The folder names the scene;
   the filename says what is in the file. Keep these honest - a filename that
   overstates its coverage is worse than no name at all.
 - `<slug>` - what changed in this pass (`base`, `liquid`, `camera_rig`,
@@ -61,9 +69,6 @@ versions still increment across the whole shot rather than per part, so
 
 ## Adding a new render
 
-The package scripts still write into their own review folders
-(`scripts/package_lapohka_shot4_preview.py`,
-`renders/shot3_199_284_review/package_preview.py`). Their output paths were
-deliberately left alone, so after encoding, move and rename the result into the
-right shot folder, take the next version number for that shot, and add a row to
-`renders/lapohka/README.md`.
+Render into the scene's own `frames/` folder, encode, and put the videos and
+manifest next to `frames/` with the next version number for that shot.
+Replace superseded frames and videos rather than keeping review folders around.

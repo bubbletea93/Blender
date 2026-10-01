@@ -66,5 +66,10 @@ For the bottle asset, the lacquer-shade material library (84 `LacquerShade_*` an
 
 ## Shot inventory
 
-- `scenes/gel_polish_macro_closeup_shot.blend` — scene `GelPolishBottle_Shot`, frames 48–180 @ 30 fps, camera `Camera_Gel_macro_closeup` parented to `Target_Gel_macro_closeup`. Animations: `HousingAction.005` (spin), `Target_Gel_macro_closeupAction.006` (camera-target follow), `LacquerShade_Swap_ABAction` + `StudioBackdrop_MatAction` (mid-spin color swaps).
-- `scenes/gel_polish_bounce_wobble_shot.blend` — scene `GelPolishBottle_TabletopDrop`, frames 1–60 @ 30 fps, camera `Camera_TabletopDrop`. Animation: `Housing_TabletopDrop_BounceWobble` on the override Housing.
+Five Lapohka 3D Motion shots, all 30 fps, frame numbers absolute on the 0–528 timeline. Each `scenes/<name>.blend` renders 4K 16-bit PNGs to `renders/<name>/frames/frame_####.png`; the delivered MP4, ProRes master and manifest sit next to `frames/`.
+
+- `gel_polish_lapohka_shot1_0_82` — scene `SHOT01_ReferenceRiseDoubleSpin_0_82`, frames 0–82.
+- `gel_polish_lapohka_shot2_57_198` — scene `SHOT02_ReferenceLanding_57_198`, frames 57–198.
+- `gel_polish_lapohka_shot3_199_284` — scene `SHOT03_LiquidEntry_199_284`, frames 199–284. Alembic caches load from `cache/gel_polish_lapohka_shot3_199_284/` (gitignored); the LiquiGen project and collider proxy FBX that regenerate them are in `scenes/`.
+- `gel_polish_lapohka_shot4_285_375` — scene `SHOT04_BottleArray_285_375`, frames 285–375.
+- `gel_polish_lapohka_shot5_376_528` — scene `SHOT05_PolishFinale_376_528`, frames 376–528.

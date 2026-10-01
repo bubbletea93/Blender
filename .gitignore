@@ -12,13 +12,6 @@ renders/*
 renders/gel_polish_angles/*
 !renders/gel_polish_angles/*.png
 
-# Required collider source; keep generated Shot 3 caches and reviews ignored.
-!renders/shot3_liquigen_review/
-renders/shot3_liquigen_review/*
-!renders/shot3_liquigen_review/inputs/
-renders/shot3_liquigen_review/inputs/*
-!renders/shot3_liquigen_review/inputs/shot3_proxy_clearance_v010.fbx
-
 # General temporary files
 *.tmp
 *.temp

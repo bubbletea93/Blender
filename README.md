@@ -4,10 +4,12 @@ This repository is set up for Blender project source files.
 
 ## Layout
 
-- `scenes/` for shot files. Each shot links the assets it needs.
-  - `gel_polish_lapohka_shot5_376_528.blend` — finished brand collection finale, frames 376–528. The hero drops into the front row of the six-by-six, 36-shade rack, beside the user-sized sample board on a seamless mauve/lavender studio floor. The board has the Hang Pure logo, stitched leather, and 72 magnetic cat-eye samples with fine shimmer. The 4K, 30 fps production sequence and MP4/ProRes deliveries are complete. See [Shot 5 controls and reference analysis](notes/shot5_polish_finale_reference_analysis.md) and [brand collection direction](notes/shot5_brand_collection_direction.md).
-  - `gel_polish_macro_closeup_shot.blend` — macro spin (frames 48-180), closeup camera, mid-spin lacquer + backdrop color swap.
-  - `gel_polish_bounce_wobble_shot.blend` — tabletop drop with bounce/wobble (frames 1-60), `Camera_TabletopDrop` perspective.
+- `scenes/` for shot files. Each shot links the assets it needs. The five Lapohka 3D Motion shots are named `gel_polish_lapohka_shot<N>_<start>_<end>.blend` and render to `renders/<same name>/frames/frame_####.png`.
+  - `gel_polish_lapohka_shot1_0_82.blend` — opening, frames 0–82: rise, coral-to-green spin (cut f30), green-to-blue spin (cut f56), then the drop at f71–82. See [opening-shot timing and controls](notes/shot1_shot2_reference_motion_v002.md).
+  - `gel_polish_lapohka_shot2_57_198.blend` — reference landing, frames 57–198: drop, small bounce, and settle.
+  - `gel_polish_lapohka_shot3_199_284.blend` — LiquiGen liquid entry, frames 199–284. Loads the v010 clearance Alembic caches from `cache/gel_polish_lapohka_shot3_199_284/` (gitignored, 17 GB; regenerate from `gel_polish_lapohka_shot3_199_284.liquigen` + `gel_polish_lapohka_shot3_199_284_liquigen_proxy.fbx`).
+  - `gel_polish_lapohka_shot4_285_375.blend` — bottle array with fine lacquer shimmer, frames 285–375.
+  - `gel_polish_lapohka_shot5_376_528.blend` — finished brand collection finale, frames 376–528. The hero drops into the front row of the six-by-six, 36-shade rack, beside the user-sized sample board on a seamless mauve/lavender studio floor. The board has the Hang Pure logo, stitched leather, and 72 magnetic cat-eye samples with fine shimmer. See [Shot 5 controls and reference analysis](notes/shot5_polish_finale_reference_analysis.md) and [brand collection direction](notes/shot5_brand_collection_direction.md).
 - `assets/` for reusable, linkable `.blend` files. Each top-level collection / world is marked as an asset for the Asset Browser.
   - `assets/props/brand_collection_bottle_rack_36.blend` — complete six-tier, six-column display with 36 distinct shades matching the sample board. Shared finished product meshes retain full surface detail while supporting efficient rigid motion blur.
   - `assets/props/brand_collection_sample_board.blend` — original pearl-bordered sample display with 72 tips and 36 paired shades numbered 211–246; contains the user's resized geometry with the stand removed. The current scene uses the separately derived `brand_collection_sample_board_stitched.blend`: sewn pearl-white leather backer, Hang Pure logo, and fine magnetic shimmer. Its linkable collection is `Prop_BrandCollection_SampleBoard_Stitched`.
@@ -29,9 +31,9 @@ This repository is set up for Blender project source files.
 
 Generated output such as renders, bake data, and simulation caches should stay out of Git.
 
-Shot 5 production frames are in `renders/shot5_polish_finale_production_4k/production_4k/`.
-The verified 4K MP4, ProRes 4444 XQ master, and checksum manifest are in
-`renders/lapohka/shot5_f376-528/`. Repackage existing frames with
+Each shot's render folder, `renders/gel_polish_lapohka_shot<N>_<start>_<end>/`, holds the
+final 4K, 16-bit PNG sequence in `frames/` alongside the delivered MP4, ProRes 4444 XQ
+master, and manifest. Repackage existing Shot 5 frames with
 `python scripts/package_shot5_production.py`; this does not render again.
 
 The lacquer's pearlescent finish is shared through `Lacquer_RenderGlitter_SHARED`

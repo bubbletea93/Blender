@@ -3,17 +3,17 @@
 Run Blender in background with scenes/gel_polish_lapohka_shot5_376_528.blend
 and --python scripts/render_shot5_production.py. Existing PNG + JSON pairs are
 retained for resume. For a changed scene, use a new output directory with:
--- --output renders/shot5_new_revision
+-- --output renders/gel_polish_lapohka_shot5_376_528_new_revision
 """
 import argparse, bpy, json, sys, time
 from pathlib import Path
 
 ROOT=Path(__file__).resolve().parents[1]
 parser=argparse.ArgumentParser(description=__doc__)
-parser.add_argument('--output',type=Path,default=ROOT/'renders/shot5_polish_finale_production_4k')
+parser.add_argument('--output',type=Path,default=ROOT/'renders/gel_polish_lapohka_shot5_376_528')
 args=parser.parse_args(sys.argv[sys.argv.index('--')+1:] if '--' in sys.argv else [])
 work=args.output.resolve()
-out=work/'production_4k'
+out=work/'frames'
 out.mkdir(parents=True,exist_ok=True)
 s=bpy.context.scene
 assert (s.frame_start,s.frame_end)==(376,528)
