@@ -35,9 +35,7 @@ gitignored. They must accompany a project handoff to another machine.
 
 ## Verification and review status
 
-The [validation report](lapohka_portrait_validation.json) records unchanged
-source files and sampled preservation of original object poses and material
-assignments. Half-frame framing checks confirm the complete bottle during
+Validation confirmed that the source files and sampled object poses and material assignments were preserved. Half-frame framing checks confirm the complete bottle during
 Shot 1's readable holds, after frame 60 in Shot 2 including its handoff, and
 throughout Shot 3. Shot 1's intended entrance and exit remain outside the frame.
 
