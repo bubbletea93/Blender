@@ -22,9 +22,8 @@ renders/gel_polish_angles/*
 __pycache__/
 *.py[cod]
 
-# Extracted video frames and reference shot clips (large binary assets)
-references/lapohka_3d_motion_frames/
-references/lapohka_3d_motion_shots/
+# Reference material (frames, clips, analysis) stays local, never source-controlled
+references/
 
 # Editor and OS files
 .vscode/
