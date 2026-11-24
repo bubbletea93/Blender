@@ -22,7 +22,7 @@ ROOT = HERE.parents[1]
 ORDER = (6, 7, 10, 1, 2, 5)
 STATE = ROOT / "renders" / "hero_landscape_queue"
 DELIVERY = ROOT / "renders" / "hero_landscape_shots"
-DEFAULT_BLENDER = Path(os.environ.get("ProgramFiles", "C:/Program Files")) / "Blender Foundation/Blender 5.1/blender.exe"
+DEFAULT_BLENDER = Path(os.environ.get("ProgramFiles", "C:/Program Files")) / "Blender Foundation/Blender 5.3/blender.exe"
 
 
 def utc():
@@ -45,7 +45,7 @@ def blender_setup(shot):
     render = scene.render
     image = render.image_settings
     checks = {
-        "Blender 5.1": bpy.app.version[:2] == (5, 1),
+        "Blender 5.3": bpy.app.version[:2] == (5, 3),
         "scene file": Path(bpy.data.filepath).resolve() == source,
         "frame range and step": (scene.frame_start, scene.frame_end, scene.frame_step) == (first, last, 1),
         "Cycles camera": render.engine == "CYCLES" and scene.camera is not None,
@@ -234,7 +234,7 @@ def main():
     args = parser.parse_args()
     blender = shutil.which(args.blender)
     if not blender:
-        raise FileNotFoundError(f"Blender 5.1 executable not found: {args.blender}")
+        raise FileNotFoundError(f"Blender 5.3 executable not found: {args.blender}")
     selected = list(dict.fromkeys(args.shots))
     STATE.mkdir(parents=True, exist_ok=True)
     with queue_lock(STATE / "queue.lock") as child_options:
